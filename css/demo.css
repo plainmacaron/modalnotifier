@@ -1,0 +1,56 @@
+/*
+      control demo v1_1
+
+      by Ryan E. Anderson
+
+      Copyright (C) 2016 Plain Macaron
+*/
+
+body {
+    width : 100%;
+    padding: 0;
+    margin: 0;
+    font: 16px/100% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #FFF;
+    background-color: #3B4D50;
+}
+
+h1 {
+    padding: 5px 15px;
+}
+
+p {
+    padding: 5px 15px;
+}
+
+a {
+    border: 1px dotted transparent;
+}
+
+a:link {
+    color: #FFF;
+}
+
+a:visited {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFF;
+    border: 1px dotted #FFF;
+}
+
+a:active {
+    color: #FFF;
+    border: 1px dotted #FFF;
+}
+
+a.current {
+    text-decoration: none;
+    border: 1px dotted #FFF;
+}
+
+#fine-print {
+    margin: 0;
+}

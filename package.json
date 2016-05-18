@@ -1,0 +1,39 @@
+{
+  "name": "modalnotifier",
+  "version": "1.0.0",
+  "description": "This customizable jQuery plug-in allows a web developer to specify a target that will trigger a specified event in order to display a modal dialog window.",
+  "main": "js/plainmacaron/jquery.plainmacaron.modalnotifier.js",
+  "dependencies": {
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^1.0.0",
+    "jquery": "^2.2.3",
+    "jquery-ui": "^1.10.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plainmacaron/modalnotifier.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "jquery",
+    "jquery-ui",
+    "widget",
+    "modal",
+    "dialog",
+    "window",
+    "box",
+    "notification"
+  ],
+  "author": "Ryan E. Anderson <ryan@plainmacaron.com>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/plainmacaron/modalnotifier/issues"
+  },
+  "homepage": "https://github.com/plainmacaron/modalnotifier#readme"
+}

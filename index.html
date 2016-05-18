@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <link rel="stylesheet" type="text/css" href="css/demo.css">
+        <link rel="stylesheet" type="text/css" href="css/plainmacaron/jquery.plainmacaron.modalnotifier.css">
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/plainmacaron/jquery.plainmacaron.modalnotifier.min.js"></script>
+        <script type="text/javascript">
+            var modalNotifier;
+
+            modalNotifier = null;
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                modalNotifier = $.plainmacaron.modalnotifier({
+                    displayStyle: 5,
+                    action: "php/track_event.php",
+                    imagePath: "png/Close-Icon.png",
+                    notificationText: "This is the modal notifier control. Try other controls on the \"Download\" page.",
+                    targetEvent: "click",
+                    targetIdentifier: "notifier"
+                });
+
+                var childLinks;
+                var displayStyleValue;
+                var link;
+
+                displayStyleValue = modalNotifier.options.displayStyle;
+
+                link = $("body > article > p a").first();
+
+                childLinks = link.parent("p")
+                                 .children("a");
+         
+                $.each(childLinks, function(index, value) {
+                    var displayStyleLinkValue;
+                    var displayValueString;
+                    var nextLink;
+
+                    nextLink = $(this);
+
+                    displayValueString = nextLink.text();
+                    displayStyleLinkValue = parseInt(displayValueString.trim(), 10);
+
+                    if(displayStyleLinkValue === displayStyleValue && !nextLink.hasClass("current")) {
+                        nextLink.addClass("current");
+                    }
+
+                    if(displayStyleLinkValue !== displayStyleValue && nextLink.hasClass("current")) {
+                        nextLink.removeClass("current");
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $("body > article > p a").click(function() {
+                    var childLinks;
+                    var displayStyleValue;
+                    var displayValueString;
+                    var link;
+                    var linkIdentifier;
+
+                    link = $(this);
+
+                    linkIdentifier = "#" + link.attr("id");
+
+                    childLinks = link.parent("p")
+                                     .children("a");
+         
+                    $.each(childLinks, function(index, value) {
+                        var nextLink;
+
+                        nextLink = $(this);
+
+                        if(nextLink.hasClass("current")) {
+                            nextLink.removeClass("current");
+                        }
+                    });
+
+                    if(!link.hasClass("current")) {
+                        link.addClass("current");
+                    }
+
+                    displayValueString = link.text();
+                    displayStyleValue = parseInt(displayValueString.trim(), 10);
+
+                    modalNotifier.option("displayStyle", displayStyleValue);
+                });
+            });
+        </script>
+
+        <title>Plain Macaron - modalnotifier</title>
+    </head>
+    <body>
+        <article>
+            <header>
+                <h1>modalnotifier</h1>
+                <p>
+                    <small>Published: <time>2016-05-18</time></small>
+                </p>
+            </header>
+            <p>
+                Try modalnotifier. Choose either display style <a id="first-display-link" href="#notifier">1</a>, display style 
+                <a id="second-display-link" href="#notifier">2</a>, display style <a id="third-display-link" href="#notifier">3</a>, display style 
+                <a id="fourth-display-link" href="#notifier">4</a>, display style <a id="fifth-display-link" href="#notifier">5</a>, or display style 
+                <a id="sixth-display-link" href="#notifier">6</a>.
+            </p>
+            <div id="notifier">
+                <p>
+                    <a href="#">Click this link.</a>
+                </p>
+            </div>
+            <footer>
+                <p id="fine-print">
+                    <small>
+                        Copyright &copy; 2016 <a href="http://plainmacaron.com/">Plain Macaron</a>. All Rights Reserved.
+                    </small>
+                </p>
+            </footer>
+        </article>
+    </body>
+</html>

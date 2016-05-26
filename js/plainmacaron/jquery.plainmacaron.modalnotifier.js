@@ -1,5 +1,5 @@
 /*!
- * jQuery Modalnotifier plug-in v1.0.0 - 2016-05-17T08:20Z
+ * jQuery Modalnotifier plug-in v1.0.1 - 2016-05-25T21:30Z
  * http://PlainMacaron.com/Controls/, http://PlainMacaron.com/Download/
  *
  * This customizable jQuery plug-in allows a web developer to specify a target that will 
@@ -84,7 +84,7 @@
             targetLocationIdentifier: null,
             targetStructure: null
         },
-        version: "1.0.0",
+        version: "1.0.1",
 
         _create: function () {
             var buttonContainer;
@@ -239,11 +239,8 @@
         _destroy: function () {
             var container;
             var element;
-            var event;
             var options;
             var self;
-
-            event = {};
 
             self = this;
             element = self.element;
@@ -251,12 +248,10 @@
 
             container = element.children( "#" + options.containerIdentifier );
 
-            event[options.targetEvent] = self._targetEventHandler;
-
             self._off( $("#" + options.closeButtonIdentifier), "click" );
             self._off( $("#" + options.closeButtonIdentifier), "mouseenter" );
             self._off( $("#" + options.closeButtonIdentifier), "mouseleave" );
-            self._off( $("#" + options.targetIdentifier), event );
+            self._off( $("#" + options.targetIdentifier), options.targetEvent );
 
             container.next()
                      .remove();
@@ -671,7 +666,7 @@
 
                         event = {};
       
-                        self._off( $("#" + options.targetIdentifier), event[options.targetEvent] );
+                        self._off( $("#" + options.targetIdentifier), options.targetEvent );
 
                         event[value] = self._targetEventHandler;
 
@@ -688,7 +683,7 @@
 
                         targetFirstElement = $("#" + options.targetIdentifier);
 
-                        self._off( $("#" + options.targetIdentifier), targetEvent[options.targetEvent] );
+                        self._off( $("#" + options.targetIdentifier), options.targetEvent );
 
                         targetFirstElement.attr( "id", value );
 
@@ -708,7 +703,7 @@
 
                         locationEvent = {};
 
-                        self._off( $("#" + options.targetIdentifier), locationEvent );
+                        self._off( $("#" + options.targetIdentifier), options.targetEvent );
 
                         $("#" + options.targetIdentifier).removeAttr( "id" );
 

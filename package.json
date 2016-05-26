@@ -1,6 +1,6 @@
 {
   "name": "modalnotifier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This customizable jQuery plug-in allows a web developer to specify a target that will trigger a specified event in order to display a modal dialog window.",
   "main": "js/plainmacaron/jquery.plainmacaron.modalnotifier.js",
   "dependencies": {
